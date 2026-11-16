@@ -1,0 +1,26 @@
+### REST Client file: click "Send Request" above each request (extension humao.rest-client).
+### Start the backend first: uv run uvicorn app.main:app --reload
+
+@backend = http://localhost:8000
+@ollama = http://localhost:11434
+
+### Backend health
+GET {{backend}}/api/health
+
+### Ollama: installed models
+GET {{ollama}}/api/tags
+
+### Ollama: models currently loaded in memory
+GET {{ollama}}/api/ps
+
+### Ollama: one non-streamed generation (look at eval_count and eval_duration in the response)
+POST {{ollama}}/api/generate
+Content-Type: application/json
+
+{
+  "model": "qwen3:8b",
+  "prompt": "Explique em 3 frases o que é um token em um modelo de linguagem.",
+  "stream": false,
+  "think": false,
+  "options": { "num_ctx": 8192, "temperature": 0.2 }
+}
