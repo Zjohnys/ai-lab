@@ -5,6 +5,7 @@ description = "AI Lab backend: FastAPI service that talks to local models only."
 requires-python = ">=3.13,<3.14"
 dependencies = [
     "fastapi>=0.163.1",
+    "httpx>=0.28.1",
     "pydantic-settings>=2.16.3",
     "uvicorn[standard]>=0.54.0",
 ]
@@ -32,7 +33,6 @@ select = ["E", "F", "I", "UP", "B", "ANN", "S"]
 
 [dependency-groups]
 dev = [
-    "httpx>=0.28.1",
     "pytest>=9.2.0",
     "ruff>=0.17.5",
 ]
