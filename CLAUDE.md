@@ -15,6 +15,7 @@ Escola pessoal de engenharia de IA. Monorepo: backend FastAPI, frontend React, m
 ## Comandos
 - Backend: `cd backend; uv run uvicorn app.main:app --reload`
 - Testes backend: `cd backend; uv run pytest`
+- Testes com modelo real (Ollama rodando): `cd backend; uv run pytest -m live -s`
 - Lint backend: `cd backend; uv run ruff check .`
 - Frontend: `cd frontend; npm run dev`
 - Testes frontend: `cd frontend; npm test`
