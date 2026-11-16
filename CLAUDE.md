@@ -28,6 +28,13 @@ Escola pessoal de engenharia de IA. Monorepo: backend FastAPI, frontend React, m
 - READMEs em inglês; interface do app em português.
 - Não escrever código de exercício marcado como "solo".
 
+## Ritmo e ordem
+- Ritmo: cerca de 2 horas por semana. Uma sessão = um lote = um pull request mesclado.
+- Exercício solo de até 30 minutos; não bloqueia o lote seguinte.
+- Downloads, instalações e benchmarks longos rodam fora do tempo de sessão.
+- Ordem de execução dos módulos: 0, 1, 2, 4, 5, 6, 7, 8, 3, 9. A numeração das pastas não muda.
+- Primeiro projeto de portfólio (benchmark de modelos) é publicado em repositório próprio ao fim do Módulo 2.
+
 ## Código
 - Testes nunca chamam modelo real: usar `FakeProvider`. Testes com modelo ficam em `@pytest.mark.live`, fora do CI.
 - Toda saída de LLM é validada com Pydantic antes de ser usada.
