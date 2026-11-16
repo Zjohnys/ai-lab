@@ -1,0 +1,38 @@
+[project]
+name = "ai-lab-backend"
+version = "0.1.0"
+description = "AI Lab backend: FastAPI service that talks to local models only."
+requires-python = ">=3.13,<3.14"
+dependencies = [
+    "fastapi>=0.163.1",
+    "pydantic-settings>=2.16.3",
+    "uvicorn[standard]>=0.54.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+markers = [
+    "live: needs a running Ollama with the models pulled; excluded from CI",
+]
+addopts = "-m 'not live'"
+
+[tool.ruff]
+line-length = 100
+target-version = "py313"
+
+[tool.ruff.lint]
+# E/F: pycodestyle and pyflakes, I: import order, UP: modern syntax,
+# B: likely bugs, ANN: missing type hints, S: security (bandit rules).
+select = ["E", "F", "I", "UP", "B", "ANN", "S"]
+
+[tool.ruff.lint.per-file-ignores]
+# `assert` is how pytest works; S101 flags it everywhere else.
+"tests/**" = ["S101"]
+
+[dependency-groups]
+dev = [
+    "httpx>=0.28.1",
+    "pytest>=9.2.0",
+    "ruff>=0.17.5",
+]
