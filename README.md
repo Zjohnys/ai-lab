@@ -1,10 +1,12 @@
 # AI Lab
 
+[![CI](https://github.com/Zjohnys/ai-lab/actions/workflows/ci.yml/badge.svg)](https://github.com/Zjohnys/ai-lab/actions/workflows/ci.yml)
+
 A personal AI engineering school that runs entirely on local, open-source models. No cloud APIs, no API keys, no usage cost.
 
 Each module teaches one topic and ends with a working project, tests, and measured results.
 
-> Status: Module 0 (environment) in progress. The backend and frontend are minimal skeletons.
+> Status: Module 0 (environment) complete. First measurement: `qwen3:8b` at 36 tokens/s on an RTX 3050 8 GB. The backend and frontend are minimal skeletons.
 
 ## Why local only
 
@@ -38,7 +40,7 @@ Each module teaches one topic and ends with a working project, tests, and measur
 
 | # | Topic | Portfolio project |
 | --- | --- | --- |
-| 0 | Professional environment with AI | |
+| [0](modules/00-ambiente/README.md) | Professional environment with AI | |
 | 1 | Local LLM fundamentals | |
 | 2 | Measured prompt engineering | Model benchmark (start) |
 | 3 | Reusable prompts and commands | |
