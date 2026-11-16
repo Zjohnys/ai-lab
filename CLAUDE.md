@@ -18,8 +18,8 @@ Escola pessoal de engenharia de IA. Monorepo: backend FastAPI, frontend React, m
 - Lint backend: `cd backend; uv run ruff check .`
 - Frontend: `cd frontend; npm run dev`
 - Testes frontend: `cd frontend; npm test`
-
-(Backend e frontend ainda não existem; são criados no Lote 2 do Módulo 0.)
+- Lint frontend: `cd frontend; npm run lint` (oxlint, padrão do template Vite atual)
+- O frontend chama `/api/*`; o Vite faz proxy para `http://localhost:8000`.
 
 ## Como trabalhar
 - Planejar antes de codar. Lotes de no máximo 3 itens; parar e esperar aprovação.

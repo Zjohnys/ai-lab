@@ -4,7 +4,7 @@ A personal AI engineering school that runs entirely on local, open-source models
 
 Each module teaches one topic and ends with a working project, tests, and measured results.
 
-> Status: Module 0 (environment) in progress. The backend and frontend are not scaffolded yet.
+> Status: Module 0 (environment) in progress. The backend and frontend are minimal skeletons.
 
 ## Why local only
 
@@ -51,8 +51,33 @@ Each module teaches one topic and ends with a working project, tests, and measur
 
 ## Setup
 
+Requirements: [Ollama](https://ollama.com), [uv](https://docs.astral.sh/uv/), Node.js 22+.
+
 ```powershell
 Copy-Item .env.example .env
+ollama pull qwen3:8b
 ```
 
-Run instructions for the backend and frontend will be added when they are scaffolded.
+Backend (http://localhost:8000, API docs at `/docs`):
+
+```powershell
+cd backend
+uv run uvicorn app.main:app --reload
+```
+
+Frontend (http://localhost:5173), in a second terminal:
+
+```powershell
+cd frontend
+npm install
+npm run dev
+```
+
+## Tests
+
+```powershell
+cd backend; uv run pytest
+cd frontend; npm test
+```
+
+Tests never call a real model. Tests that need Ollama are marked `live` and are skipped by default.
