@@ -51,6 +51,8 @@ Each module teaches one topic and ends with a working project, tests, and measur
 | 8 | Local production | |
 | 9 | Advanced: quantization, LoRA, in-browser AI | Model benchmark (final) |
 
+Study order: 0, 1, 2, 4, 5, 6, 7, 8, 3, 9. Evaluation, structured output, RAG and agents come first; reusable commands and the advanced topics close the track.
+
 ## Setup
 
 Requirements: [Ollama](https://ollama.com), [uv](https://docs.astral.sh/uv/), Node.js 22+.

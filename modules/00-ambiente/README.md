@@ -77,6 +77,8 @@ Memory while loaded: 6.2 GB reported by `ollama ps`, 100% on GPU; `nvidia-smi` s
 - **Thinking mode**: 3.7 times more output tokens for the same question and 9 times the total time.
 - **PowerShell 5.1 quoting**: a multi-line `gh pr create --body` with nested quotes was split into several arguments; `--body-file` solved it.
 
+- **Lock file broken across platforms**: `package-lock.json`, built by several incremental `npm install` runs on Windows, had no entries for `@emnapi/core` and `@emnapi/runtime`. `npm ci` passed on Windows and failed on the Linux CI runner. The first diagnosis (npm 10 vs 11) was wrong; regenerating the lock file from a clean install fixed it.
+
 ## Limitations
 
 - One run per row; no variance measured.
