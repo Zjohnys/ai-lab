@@ -1,6 +1,6 @@
 import hashlib
 import re
-from collections.abc import AsyncIterator, Sequence
+from collections.abc import AsyncGenerator, Sequence
 from dataclasses import dataclass
 
 from app.llm.provider import LLMProvider, LLMProviderError
@@ -40,7 +40,7 @@ class FakeProvider(LLMProvider):
         model: str,
         messages: Sequence[ChatMessage],
         options: GenerationOptions | None = None,
-    ) -> AsyncIterator[ChatChunk]:
+    ) -> AsyncGenerator[ChatChunk]:
         self.calls.append(FakeCall(model, tuple(messages), options or GenerationOptions()))
         if self._fail_with is not None:
             raise self._fail_with

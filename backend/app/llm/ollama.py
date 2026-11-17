@@ -1,4 +1,4 @@
-from collections.abc import AsyncIterator, Sequence
+from collections.abc import AsyncGenerator, Sequence
 
 import httpx
 from pydantic import BaseModel, ValidationError
@@ -94,7 +94,7 @@ class OllamaProvider(LLMProvider):
         model: str,
         messages: Sequence[ChatMessage],
         options: GenerationOptions | None = None,
-    ) -> AsyncIterator[ChatChunk]:
+    ) -> AsyncGenerator[ChatChunk]:
         opts = options or GenerationOptions()
         payload = {
             "model": model,
