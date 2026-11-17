@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from collections.abc import AsyncIterator, Sequence
+from collections.abc import AsyncGenerator, Sequence
 
 from app.llm.types import ChatChunk, ChatMessage, GenerationOptions, ModelInfo
 
@@ -29,7 +29,7 @@ class LLMProvider(ABC):
         model: str,
         messages: Sequence[ChatMessage],
         options: GenerationOptions | None = None,
-    ) -> AsyncIterator[ChatChunk]:
+    ) -> AsyncGenerator[ChatChunk]:
         """Yield the answer piece by piece; the final chunk has done=True and stats."""
 
     @abstractmethod

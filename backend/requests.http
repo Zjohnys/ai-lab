@@ -7,6 +7,41 @@
 ### Backend health
 GET {{backend}}/api/health
 
+### Backend: installed models and the default chat model
+GET {{backend}}/api/models
+
+### Backend: chat with server defaults (the answer arrives as Server-Sent Events)
+POST {{backend}}/api/chat
+Content-Type: application/json
+
+{
+  "messages": [
+    { "role": "user", "content": "Explique em 2 frases o que é streaming de tokens." }
+  ]
+}
+
+### Backend: chat with a system prompt and explicit options
+POST {{backend}}/api/chat
+Content-Type: application/json
+
+{
+  "model": "qwen3:8b",
+  "messages": [
+    { "role": "system", "content": "Você é um analista de suporte. Responda em no máximo 3 linhas." },
+    { "role": "user", "content": "Minha impressora aparece offline. O que eu verifico primeiro?" }
+  ],
+  "options": { "temperature": 0.7, "num_ctx": 4096, "max_tokens": 200, "think": false }
+}
+
+### Backend: model that is not installed (expect 404)
+POST {{backend}}/api/chat
+Content-Type: application/json
+
+{
+  "model": "nao-existe:1b",
+  "messages": [{ "role": "user", "content": "Oi" }]
+}
+
 ### Ollama: installed models
 GET {{ollama}}/api/tags
 
