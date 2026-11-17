@@ -1,0 +1,239 @@
+{
+  "model": "qwen3:8b",
+  "date": "2026-11-16",
+  "gpu_memory_used_mb_before": 7918,
+  "temperature": [
+    {
+      "temperature": 0.0,
+      "runs": 5,
+      "distinct_answers": 1,
+      "answers": [
+        "Café no Núcleo",
+        "Café no Núcleo",
+        "Café no Núcleo",
+        "Café no Núcleo",
+        "Café no Núcleo"
+      ]
+    },
+    {
+      "temperature": 0.7,
+      "runs": 5,
+      "distinct_answers": 3,
+      "answers": [
+        "Café no Núcleo",
+        "CaféNoCubo",
+        "CaféByte",
+        "Café no Núcleo",
+        "Café no Núcleo"
+      ]
+    },
+    {
+      "temperature": 1.5,
+      "runs": 5,
+      "distinct_answers": 4,
+      "answers": [
+        "CaféNet Café",
+        "CaféCubo",
+        "CaféByte",
+        "CaféByte",
+        "CaféDataCore"
+      ]
+    }
+  ],
+  "thinking": [
+    {
+      "think": false,
+      "correct": 4,
+      "questions": 6,
+      "output_tokens": 121,
+      "seconds": 4.4,
+      "details": [
+        {
+          "expected": "300",
+          "answer": "360",
+          "correct": false
+        },
+        {
+          "expected": "29",
+          "answer": "39",
+          "correct": false
+        },
+        {
+          "expected": "sábado",
+          "answer": "sábado",
+          "correct": true
+        },
+        {
+          "expected": "6",
+          "answer": "Para calcular o tempo que cada backup leva:\n\n- **Primeiro backup:**  \n  $ \\frac{48 \\text{ GB}}{4 \\text{ GB/min}} = 12 \\t",
+          "correct": true
+        },
+        {
+          "expected": "42",
+          "answer": "42",
+          "correct": true
+        },
+        {
+          "expected": "2",
+          "answer": "2",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "think": true,
+      "correct": 6,
+      "questions": 6,
+      "output_tokens": 2346,
+      "seconds": 79.2,
+      "details": [
+        {
+          "expected": "300",
+          "answer": "300",
+          "correct": true
+        },
+        {
+          "expected": "29",
+          "answer": "29",
+          "correct": true
+        },
+        {
+          "expected": "sábado",
+          "answer": "Sábado",
+          "correct": true
+        },
+        {
+          "expected": "6",
+          "answer": "6",
+          "correct": true
+        },
+        {
+          "expected": "42",
+          "answer": "42",
+          "correct": true
+        },
+        {
+          "expected": "2",
+          "answer": "2",
+          "correct": true
+        }
+      ]
+    }
+  ],
+  "overflow": [
+    {
+      "filler_sentences": 20,
+      "prompt_characters": 1718,
+      "fact_position": "start",
+      "num_ctx": 2048,
+      "prompt_tokens_reported": 444,
+      "found_secret": true,
+      "answer": "AZUL-7731"
+    },
+    {
+      "filler_sentences": 20,
+      "prompt_characters": 1718,
+      "fact_position": "end",
+      "num_ctx": 2048,
+      "prompt_tokens_reported": 444,
+      "found_secret": true,
+      "answer": "AZUL-7731"
+    },
+    {
+      "filler_sentences": 80,
+      "prompt_characters": 6518,
+      "fact_position": "start",
+      "num_ctx": 2048,
+      "prompt_tokens_reported": 1644,
+      "found_secret": true,
+      "answer": "AZUL-7731"
+    },
+    {
+      "filler_sentences": 80,
+      "prompt_characters": 6518,
+      "fact_position": "end",
+      "num_ctx": 2048,
+      "prompt_tokens_reported": 1644,
+      "found_secret": true,
+      "answer": "AZUL-7731"
+    },
+    {
+      "filler_sentences": 200,
+      "prompt_characters": 16219,
+      "fact_position": "start",
+      "num_ctx": 2048,
+      "prompt_tokens_reported": 1026,
+      "found_secret": false,
+      "answer": "200"
+    },
+    {
+      "filler_sentences": 200,
+      "prompt_characters": 16219,
+      "fact_position": "end",
+      "num_ctx": 2048,
+      "prompt_tokens_reported": 1026,
+      "found_secret": true,
+      "answer": "AZUL-7731"
+    },
+    {
+      "filler_sentences": 400,
+      "prompt_characters": 32419,
+      "fact_position": "start",
+      "num_ctx": 2048,
+      "prompt_tokens_reported": 1026,
+      "found_secret": false,
+      "answer": "400"
+    },
+    {
+      "filler_sentences": 400,
+      "prompt_characters": 32419,
+      "fact_position": "end",
+      "num_ctx": 2048,
+      "prompt_tokens_reported": 1026,
+      "found_secret": true,
+      "answer": "AZUL-7731"
+    }
+  ],
+  "context_size": [
+    {
+      "num_ctx": 2048,
+      "load_seconds": 0.0,
+      "tokens_per_second": 39.2,
+      "gpu_memory_used_mb": 6150,
+      "error": null,
+      "size_gb": 4.92,
+      "vram_gb": 4.92,
+      "gpu_percent": 100.0
+    },
+    {
+      "num_ctx": 4096,
+      "load_seconds": 6.2,
+      "tokens_per_second": 37.7,
+      "gpu_memory_used_mb": 6426,
+      "error": null,
+      "size_gb": 5.2,
+      "vram_gb": 5.2,
+      "gpu_percent": 100.0
+    },
+    {
+      "num_ctx": 16384,
+      "load_seconds": 7.5,
+      "tokens_per_second": 20.4,
+      "gpu_memory_used_mb": 7031,
+      "error": null,
+      "size_gb": 7.3,
+      "vram_gb": 6.03,
+      "gpu_percent": 82.6
+    },
+    {
+      "num_ctx": 8192,
+      "load_seconds": 6.6,
+      "tokens_per_second": 38.2,
+      "gpu_memory_used_mb": 6763,
+      "error": null,
+      "size_gb": 5.77,
+      "vram_gb": 5.77,
+      "gpu_percent": 100.0
+    }
+  ]
+}
