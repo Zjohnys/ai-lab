@@ -10,6 +10,7 @@ Escola pessoal de engenharia de IA. Monorepo: backend FastAPI, frontend React, m
 - Backend: Python 3.13, uv, FastAPI, Pydantic v2, SQLite + sqlite-vec, pytest, Ruff.
 - Frontend: React, TypeScript strict, Vite, Tailwind, Vitest.
 - Modelos: `qwen3:8b` (chat), `qwen2.5-coder:7b` (code), `bge-m3` (embeddings).
+- `qwen3:4b` instalado é variante só-thinking: com `think: false` o raciocínio vai para o texto da resposta. Usar `--think --max-tokens 2048` nas avaliações. Conferir `ollama show <modelo>` antes de testar um modelo novo.
 - Hardware alvo: RTX 3050 8 GB VRAM, 16 GB RAM. Um modelo carregado por vez; `num_ctx` até 8192.
 
 ## Comandos

@@ -1,0 +1,194 @@
+{
+  "dataset": "support_triage_holdout",
+  "prompt_id": "v3_few_shot",
+  "model": "qwen3:4b",
+  "options": {
+    "temperature": 0.0,
+    "num_ctx": 8192,
+    "max_tokens": 2048,
+    "seed": 42,
+    "think": true
+  },
+  "started_at": "2026-11-23T22:32:59+00:00",
+  "summary": {
+    "total": 10,
+    "correct": 9,
+    "accuracy": 0.9,
+    "strict_json_rate": 1.0,
+    "json_found_rate": 1.0,
+    "valid_label_rate": 1.0,
+    "errors": 0,
+    "mean_latency_seconds": 10.759775549999905,
+    "max_latency_seconds": 28.21876770000017,
+    "mean_tokens_per_second": 63.54469512445551,
+    "per_label": {
+      "acesso": {
+        "total": 2,
+        "correct": 2
+      },
+      "hardware": {
+        "total": 2,
+        "correct": 2
+      },
+      "rede": {
+        "total": 2,
+        "correct": 1
+      },
+      "software": {
+        "total": 2,
+        "correct": 2
+      },
+      "seguranca": {
+        "total": 2,
+        "correct": 2
+      }
+    }
+  },
+  "results": [
+    {
+      "case_id": "h-acesso-01",
+      "expected": "acesso",
+      "predicted": "acesso",
+      "correct": true,
+      "strict_json": true,
+      "json_found": true,
+      "label_valid": true,
+      "raw_output": "{\"category\": \"acesso\"}",
+      "error": null,
+      "latency_seconds": 6.6989694999992935,
+      "output_tokens": 369,
+      "tokens_per_second": 59.60051182141426
+    },
+    {
+      "case_id": "h-acesso-02",
+      "expected": "acesso",
+      "predicted": "acesso",
+      "correct": true,
+      "strict_json": true,
+      "json_found": true,
+      "label_valid": true,
+      "raw_output": "{\"category\": \"acesso\"}",
+      "error": null,
+      "latency_seconds": 28.21876770000017,
+      "output_tokens": 1652,
+      "tokens_per_second": 58.65129917420604
+    },
+    {
+      "case_id": "h-rede-01",
+      "expected": "rede",
+      "predicted": "software",
+      "correct": false,
+      "strict_json": true,
+      "json_found": true,
+      "label_valid": true,
+      "raw_output": "{\"category\": \"software\"}",
+      "error": null,
+      "latency_seconds": 13.213315300000431,
+      "output_tokens": 835,
+      "tokens_per_second": 64.09226584427974
+    },
+    {
+      "case_id": "h-rede-02",
+      "expected": "rede",
+      "predicted": "rede",
+      "correct": true,
+      "strict_json": true,
+      "json_found": true,
+      "label_valid": true,
+      "raw_output": "{\"category\": \"rede\"}",
+      "error": null,
+      "latency_seconds": 22.293570800000452,
+      "output_tokens": 1392,
+      "tokens_per_second": 63.321738298170054
+    },
+    {
+      "case_id": "h-hardware-01",
+      "expected": "hardware",
+      "predicted": "hardware",
+      "correct": true,
+      "strict_json": true,
+      "json_found": true,
+      "label_valid": true,
+      "raw_output": "{\"category\": \"hardware\"}",
+      "error": null,
+      "latency_seconds": 6.112620300000344,
+      "output_tokens": 382,
+      "tokens_per_second": 65.00754478926238
+    },
+    {
+      "case_id": "h-hardware-02",
+      "expected": "hardware",
+      "predicted": "hardware",
+      "correct": true,
+      "strict_json": true,
+      "json_found": true,
+      "label_valid": true,
+      "raw_output": "{\"category\": \"hardware\"}",
+      "error": null,
+      "latency_seconds": 6.689209499999379,
+      "output_tokens": 430,
+      "tokens_per_second": 64.74747131009431
+    },
+    {
+      "case_id": "h-software-01",
+      "expected": "software",
+      "predicted": "software",
+      "correct": true,
+      "strict_json": true,
+      "json_found": true,
+      "label_valid": true,
+      "raw_output": "{\"category\": \"software\"}",
+      "error": null,
+      "latency_seconds": 4.658628000000135,
+      "output_tokens": 296,
+      "tokens_per_second": 65.09428775633624
+    },
+    {
+      "case_id": "h-software-02",
+      "expected": "software",
+      "predicted": "software",
+      "correct": true,
+      "strict_json": true,
+      "json_found": true,
+      "label_valid": true,
+      "raw_output": "{\"category\": \"software\"}",
+      "error": null,
+      "latency_seconds": 3.8778318999993644,
+      "output_tokens": 250,
+      "tokens_per_second": 65.34856007061828
+    },
+    {
+      "case_id": "h-seguranca-01",
+      "expected": "seguranca",
+      "predicted": "seguranca",
+      "correct": true,
+      "strict_json": true,
+      "json_found": true,
+      "label_valid": true,
+      "raw_output": "{\"category\": \"seguranca\"}",
+      "error": null,
+      "latency_seconds": 5.244170999999369,
+      "output_tokens": 338,
+      "tokens_per_second": 65.01811754852457
+    },
+    {
+      "case_id": "h-seguranca-02",
+      "expected": "seguranca",
+      "predicted": "seguranca",
+      "correct": true,
+      "strict_json": true,
+      "json_found": true,
+      "label_valid": true,
+      "raw_output": "{\"category\": \"seguranca\"}",
+      "error": null,
+      "latency_seconds": 10.590671500000099,
+      "output_tokens": 681,
+      "tokens_per_second": 64.56515463164915
+    }
+  ],
+  "memory": {
+    "size_gb": 3.61,
+    "vram_gb": 3.61,
+    "gpu_percent": 100.0
+  }
+}
