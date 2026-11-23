@@ -1,0 +1,102 @@
+{
+  "name": "support_triage",
+  "description": "Mensagens fictícias de suporte de TI, cada uma com a categoria correta. Três por categoria; uma de cada três é ambígua de propósito (difficulty: hard).",
+  "labels": ["acesso", "hardware", "rede", "software", "seguranca"],
+  "cases": [
+    {
+      "id": "acesso-01",
+      "message": "Esqueci minha senha do sistema de RH e agora minha conta está bloqueada depois de três tentativas.",
+      "expected": "acesso",
+      "difficulty": "easy"
+    },
+    {
+      "id": "acesso-02",
+      "message": "Preciso de permissão de leitura na pasta compartilhada do Financeiro. Meu gestor já aprovou por e-mail.",
+      "expected": "acesso",
+      "difficulty": "easy"
+    },
+    {
+      "id": "acesso-03",
+      "message": "A VPN conecta normalmente, mas quando tento entrar no ERP aparece a mensagem 'usuário sem autorização'.",
+      "expected": "acesso",
+      "difficulty": "hard",
+      "note": "Cita VPN, mas a conexão funciona; o problema é permissão no ERP."
+    },
+    {
+      "id": "rede-01",
+      "message": "O Wi-Fi do terceiro andar cai a cada dez minutos. Todo mundo da sala está reclamando.",
+      "expected": "rede",
+      "difficulty": "easy"
+    },
+    {
+      "id": "rede-02",
+      "message": "Estou em home office e a VPN fica tentando conectar e nunca completa. A internet de casa funciona normalmente.",
+      "expected": "rede",
+      "difficulty": "easy"
+    },
+    {
+      "id": "rede-03",
+      "message": "Tudo está lento hoje: o sistema interno, o e-mail e até os sites da internet. Testei em dois computadores diferentes e é igual.",
+      "expected": "rede",
+      "difficulty": "hard",
+      "note": "Cita sistemas e e-mail, mas a lentidão em tudo e em duas máquinas aponta para a rede."
+    },
+    {
+      "id": "hardware-01",
+      "message": "A impressora do RH mostra 'atolamento de papel', mas não tem nenhum papel preso.",
+      "expected": "hardware",
+      "difficulty": "easy"
+    },
+    {
+      "id": "hardware-02",
+      "message": "Meu notebook não liga mais. Nem a luz do carregador acende.",
+      "expected": "hardware",
+      "difficulty": "easy"
+    },
+    {
+      "id": "hardware-03",
+      "message": "Derrubei café no teclado e agora algumas teclas digitam letras erradas.",
+      "expected": "hardware",
+      "difficulty": "hard",
+      "note": "O sintoma (letras erradas) parece de software, a causa é física."
+    },
+    {
+      "id": "software-01",
+      "message": "O Excel fecha sozinho toda vez que eu abro a planilha de orçamento.",
+      "expected": "software",
+      "difficulty": "easy"
+    },
+    {
+      "id": "software-02",
+      "message": "Preciso que instalem o Power BI Desktop na minha máquina para um projeto novo.",
+      "expected": "software",
+      "difficulty": "easy"
+    },
+    {
+      "id": "software-03",
+      "message": "Depois da atualização de ontem, o Outlook não abre e mostra 'não é possível iniciar o Microsoft Outlook'.",
+      "expected": "software",
+      "difficulty": "hard",
+      "note": "É sobre e-mail, mas o problema é o programa não iniciar após atualização."
+    },
+    {
+      "id": "seguranca-01",
+      "message": "Recebi um e-mail dizendo que minha senha expira hoje, com um link para 'confirmar meus dados'. Achei estranho.",
+      "expected": "seguranca",
+      "difficulty": "easy"
+    },
+    {
+      "id": "seguranca-02",
+      "message": "Apareceu uma mensagem na tela dizendo que meus arquivos foram criptografados e pedindo um pagamento para liberar.",
+      "expected": "seguranca",
+      "difficulty": "easy"
+    },
+    {
+      "id": "seguranca-03",
+      "message": "Recebi um alerta de login na minha conta vindo de outro país, e eu não viajei.",
+      "expected": "seguranca",
+      "difficulty": "hard",
+      "note": "Envolve a conta (acesso), mas um login suspeito é incidente de segurança."
+    }
+  ]
+}

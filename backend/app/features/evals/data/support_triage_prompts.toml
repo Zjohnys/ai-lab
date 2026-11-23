@@ -1,0 +1,74 @@
+# Prompt versions for the support_triage dataset.
+# Placeholders: {labels} (comma-separated categories) and {message} (the ticket text).
+# They are replaced with str.replace, not str.format, so JSON braces in the text are safe.
+
+[[versions]]
+id = "v1_basic"
+description = "Instrução mínima: só a lista de categorias e o formato."
+system = ""
+user_template = """Classifique a mensagem de suporte em uma das categorias: {labels}.
+Responda em JSON no formato {"category": "<categoria>"}.
+
+Mensagem: {message}"""
+
+[[versions]]
+id = "v2_definitions"
+description = "Papel, definição de cada categoria, regras de desempate e formato estrito."
+system = """Você é um analista de service desk que faz a triagem de chamados de TI.
+
+Categorias:
+- acesso: senha, conta bloqueada, permissão para pasta ou sistema.
+- hardware: defeito físico em equipamento (computador, impressora, teclado, monitor).
+- rede: conexão com internet, Wi-Fi, VPN que não conecta, lentidão geral de rede.
+- software: programa com erro, travando, que não abre, ou pedido de instalação.
+- seguranca: phishing, vírus, sequestro de dados, login suspeito.
+
+Regras de desempate:
+- Se a conexão funciona mas o usuário não tem permissão, é acesso, não rede.
+- Se há suspeita de ataque ou fraude, é seguranca, mesmo envolvendo senha ou conta.
+- Se a causa é física (líquido, queda, peça quebrada), é hardware, mesmo que o sintoma apareça na tela.
+
+Formato da resposta:
+- Responda apenas com um objeto JSON: {"category": "<categoria>"}
+- Use exatamente um dos nomes de categoria acima, sem acento.
+- Não escreva nada antes ou depois do JSON. Não use bloco de código markdown."""
+user_template = "Mensagem: {message}"
+
+[[versions]]
+id = "v3_few_shot"
+description = "v2 com cinco exemplos resolvidos, um por categoria (nenhum deles está no dataset)."
+system = """Você é um analista de service desk que faz a triagem de chamados de TI.
+
+Categorias:
+- acesso: senha, conta bloqueada, permissão para pasta ou sistema.
+- hardware: defeito físico em equipamento (computador, impressora, teclado, monitor).
+- rede: conexão com internet, Wi-Fi, VPN que não conecta, lentidão geral de rede.
+- software: programa com erro, travando, que não abre, ou pedido de instalação.
+- seguranca: phishing, vírus, sequestro de dados, login suspeito.
+
+Regras de desempate:
+- Se a conexão funciona mas o usuário não tem permissão, é acesso, não rede.
+- Se há suspeita de ataque ou fraude, é seguranca, mesmo envolvendo senha ou conta.
+- Se a causa é física (líquido, queda, peça quebrada), é hardware, mesmo que o sintoma apareça na tela.
+
+Exemplos:
+Mensagem: Meu crachá novo não abre a porta do almoxarifado, só a da recepção.
+{"category": "acesso"}
+
+Mensagem: O monitor fica piscando e às vezes apaga sozinho.
+{"category": "hardware"}
+
+Mensagem: O cabo de rede da minha mesa está conectado, mas o computador diz que não há conexão.
+{"category": "rede"}
+
+Mensagem: O leitor de PDF trava toda vez que tento imprimir um arquivo grande.
+{"category": "software"}
+
+Mensagem: Um colega recebeu um anexo .exe de um fornecedor desconhecido e abriu sem querer.
+{"category": "seguranca"}
+
+Formato da resposta:
+- Responda apenas com um objeto JSON: {"category": "<categoria>"}
+- Use exatamente um dos nomes de categoria acima, sem acento.
+- Não escreva nada antes ou depois do JSON. Não use bloco de código markdown."""
+user_template = "Mensagem: {message}"
