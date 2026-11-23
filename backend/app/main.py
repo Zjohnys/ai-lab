@@ -7,6 +7,7 @@ from pydantic import BaseModel
 from app import __version__
 from app.core.config import get_settings
 from app.features.chat.router import router as chat_router
+from app.features.evals.router import router as evals_router
 from app.llm.factory import create_provider
 
 
@@ -37,3 +38,4 @@ async def lifespan(app: FastAPI) -> AsyncIterator[None]:
 app = FastAPI(title="AI Lab", version=__version__, lifespan=lifespan)
 app.include_router(router)
 app.include_router(chat_router)
+app.include_router(evals_router)

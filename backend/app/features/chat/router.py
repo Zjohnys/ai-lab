@@ -6,7 +6,8 @@ from fastapi.responses import StreamingResponse
 
 from app.features.chat.schemas import ChatRequest, ModelsResponse
 from app.llm.deps import ProviderDep, SettingsDep
-from app.llm.provider import LLMProviderError, ModelNotFoundError, ProviderUnavailableError
+from app.llm.http_errors import to_http_error
+from app.llm.provider import LLMProviderError
 from app.llm.types import ChatChunk, GenerationOptions, GenerationStats
 
 router = APIRouter(prefix="/api", tags=["chat"])
@@ -17,7 +18,7 @@ async def list_models(provider: ProviderDep, settings: SettingsDep) -> ModelsRes
     try:
         models = await provider.list_models()
     except LLMProviderError as exc:
-        raise _to_http_error(exc) from exc
+        raise to_http_error(exc) from exc
     return ModelsResponse(models=models, default_chat_model=settings.chat_model)
 
 
@@ -52,7 +53,7 @@ async def chat(
             status.HTTP_502_BAD_GATEWAY, "The model returned an empty stream."
         ) from None
     except LLMProviderError as exc:
-        raise _to_http_error(exc) from exc
+        raise to_http_error(exc) from exc
 
     return StreamingResponse(
         _event_stream(first, stream),
@@ -88,11 +89,3 @@ def _chunk_events(chunk: ChatChunk) -> Iterator[str]:
 def _sse(event: str, data: dict[str, object]) -> str:
     """Format one Server-Sent Event. json.dumps never emits a raw newline, so one data line."""
     return f"event: {event}\ndata: {json.dumps(data, ensure_ascii=False)}\n\n"
-
-
-def _to_http_error(exc: LLMProviderError) -> HTTPException:
-    if isinstance(exc, ModelNotFoundError):
-        return HTTPException(status.HTTP_404_NOT_FOUND, str(exc))
-    if isinstance(exc, ProviderUnavailableError):
-        return HTTPException(status.HTTP_503_SERVICE_UNAVAILABLE, str(exc))
-    return HTTPException(status.HTTP_502_BAD_GATEWAY, str(exc))
