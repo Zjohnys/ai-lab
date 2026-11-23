@@ -71,7 +71,9 @@ async def main() -> None:
                 run = await run_eval(provider, model, dataset, prompt, DEFAULT_EVAL_OPTIONS)
                 runs.append(run)
                 path = args.output / f"{dataset.name}__{slug(model)}__{prompt.id}.json"
-                path.write_text(run.model_dump_json(indent=2) + "\n", encoding="utf-8")
+                path.write_text(
+                    run.model_dump_json(indent=2) + "\n", encoding="utf-8", newline="\n"
+                )
                 for result in run.results:
                     if not result.correct:
                         print(
