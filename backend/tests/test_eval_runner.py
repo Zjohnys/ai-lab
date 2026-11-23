@@ -10,6 +10,7 @@ from app.llm import (
     GenerationOptions,
     GenerationStats,
     LLMProviderError,
+    ModelNotFoundError,
     ProviderUnavailableError,
 )
 from app.llm.fake import FakeProvider
@@ -107,11 +108,18 @@ async def test_a_failed_case_is_recorded_as_wrong_and_the_run_continues() -> Non
     assert len(run.results) == 4
 
 
-async def test_an_unreachable_provider_stops_the_whole_run() -> None:
-    provider = FakeProvider(fail_with=ProviderUnavailableError("Ollama is not running"))
+@pytest.mark.parametrize(
+    "error",
+    [ProviderUnavailableError("Ollama is not running"), ModelNotFoundError("not installed")],
+)
+async def test_failures_that_would_repeat_on_every_case_stop_the_whole_run(
+    error: LLMProviderError,
+) -> None:
+    provider = FakeProvider(fail_with=error)
 
-    with pytest.raises(ProviderUnavailableError):
+    with pytest.raises(type(error)):
         await run_eval(provider, "fake-model", DATASET, PROMPT)
+    assert len(provider.calls) == 1
 
 
 def test_summary_of_no_results_is_all_zero() -> None:

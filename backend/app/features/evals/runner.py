@@ -11,7 +11,12 @@ from app.features.evals.schemas import (
     PromptVersion,
 )
 from app.features.evals.scoring import parse_output
-from app.llm.provider import LLMProvider, LLMProviderError, ProviderUnavailableError
+from app.llm.provider import (
+    LLMProvider,
+    LLMProviderError,
+    ModelNotFoundError,
+    ProviderUnavailableError,
+)
 from app.llm.types import GenerationOptions
 
 # Classification has one right answer: no randomness, no thinking, short output.
@@ -39,7 +44,7 @@ async def run_case(
             if chunk.done and chunk.stats:
                 output_tokens = chunk.stats.output_tokens
                 tokens_per_second = chunk.stats.tokens_per_second
-    except ProviderUnavailableError:
+    except (ProviderUnavailableError, ModelNotFoundError):
         raise  # Every other case would fail the same way: stop the run.
     except LLMProviderError as exc:
         error = str(exc)
