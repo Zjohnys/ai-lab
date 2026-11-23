@@ -38,6 +38,17 @@ def parse_args() -> argparse.Namespace:
         "--dataset", action="append", help="Dataset name (repeatable, default: support_triage)."
     )
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT, help="Results folder.")
+    parser.add_argument(
+        "--think",
+        action="store_true",
+        help="Turn thinking on (thinking-only models need it). Adds __think to file names.",
+    )
+    parser.add_argument(
+        "--max-tokens",
+        type=int,
+        default=DEFAULT_EVAL_OPTIONS.max_tokens,
+        help="Output token limit per case. Thinking needs far more than the default.",
+    )
     return parser.parse_args()
 
 
@@ -87,6 +98,10 @@ async def main() -> None:
     if unknown_datasets:
         raise SystemExit(f"Unknown datasets: {sorted(unknown_datasets)}. Found: {sorted(found)}")
     models = args.model or [settings.chat_model]
+    options = DEFAULT_EVAL_OPTIONS.model_copy(
+        update={"think": args.think, "max_tokens": args.max_tokens}
+    )
+    suffix = "__think" if args.think else ""
 
     args.output.mkdir(parents=True, exist_ok=True)
     provider = OllamaProvider(settings.ollama_base_url, timeout_seconds=600)
@@ -101,10 +116,12 @@ async def main() -> None:
                     prompts = [prompt for prompt in prompts if prompt.id in args.prompt]
                 for prompt in prompts:
                     print(f"Running {model} / {dataset.name} / {prompt.id}...")
-                    run = await run_eval(provider, model, dataset, prompt, DEFAULT_EVAL_OPTIONS)
+                    run = await run_eval(provider, model, dataset, prompt, options)
                     run.memory = model_memory(settings.ollama_base_url, model)
                     runs.append(run)
-                    path = args.output / f"{dataset.name}__{slug(model)}__{prompt.id}.json"
+                    path = args.output / (
+                        f"{dataset.name}__{slug(model)}__{prompt.id}{suffix}.json"
+                    )
                     path.write_text(
                         run.model_dump_json(indent=2) + "\n", encoding="utf-8", newline="\n"
                     )
