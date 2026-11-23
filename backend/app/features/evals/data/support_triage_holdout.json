@@ -1,0 +1,74 @@
+{
+  "name": "support_triage_holdout",
+  "prompt_set": "support_triage",
+  "description": "Conjunto de validação: 10 mensagens escritas depois dos prompts, que não foram usadas para ajustá-los. Mesmas categorias do support_triage. Não altere os prompts com base nos erros daqui.",
+  "labels": ["acesso", "hardware", "rede", "software", "seguranca"],
+  "cases": [
+    {
+      "id": "h-acesso-01",
+      "message": "Fui transferido para o time de Compras e ainda não consigo ver os relatórios do sistema de pedidos. Aparece 'acesso negado'.",
+      "expected": "acesso",
+      "difficulty": "easy"
+    },
+    {
+      "id": "h-acesso-02",
+      "message": "O código da autenticação em dois fatores está indo para o meu celular antigo, que eu já devolvi, e não consigo entrar no portal.",
+      "expected": "acesso",
+      "difficulty": "hard",
+      "note": "Envolve autenticação, mas não há ataque nem suspeita: é troca de dispositivo cadastrado."
+    },
+    {
+      "id": "h-rede-01",
+      "message": "Na sala de reunião 4 o notebook conecta no Wi-Fi mas não abre nenhum site. Nas outras salas funciona.",
+      "expected": "rede",
+      "difficulty": "easy"
+    },
+    {
+      "id": "h-rede-02",
+      "message": "A impressora do andar sumiu da lista de impressoras de todo mundo, mas ela está ligada e o visor mostra 'pronta'.",
+      "expected": "rede",
+      "difficulty": "hard",
+      "note": "Cita impressora, mas o equipamento está funcionando; ela sumiu da rede para todos."
+    },
+    {
+      "id": "h-hardware-01",
+      "message": "A tela do notebook ficou com uma faixa colorida vertical depois que ele caiu da mesa.",
+      "expected": "hardware",
+      "difficulty": "easy"
+    },
+    {
+      "id": "h-hardware-02",
+      "message": "O mouse sem fio para de responder a cada poucos minutos. Já troquei a pilha e o problema continua.",
+      "expected": "hardware",
+      "difficulty": "hard",
+      "note": "Pode parecer driver (software), mas o defeito está no periférico."
+    },
+    {
+      "id": "h-software-01",
+      "message": "O Teams não mostra as mensagens novas. Elas só aparecem quando eu fecho e abro o programa de novo.",
+      "expected": "software",
+      "difficulty": "hard",
+      "note": "Parece conexão, mas reiniciar o programa resolve: é comportamento do aplicativo."
+    },
+    {
+      "id": "h-software-02",
+      "message": "O sistema de folha de pagamento dá 'erro 500' quando gero o relatório mensal. Os outros relatórios funcionam.",
+      "expected": "software",
+      "difficulty": "hard",
+      "note": "Erro HTTP pode lembrar rede, mas só um relatório falha: é defeito do sistema."
+    },
+    {
+      "id": "h-seguranca-01",
+      "message": "Meu celular corporativo foi roubado no ônibus hoje de manhã, e ele tem acesso ao e-mail da empresa.",
+      "expected": "seguranca",
+      "difficulty": "hard",
+      "note": "É um equipamento, mas o risco é vazamento de dados: incidente de segurança."
+    },
+    {
+      "id": "h-seguranca-02",
+      "message": "Um homem ligou dizendo ser do suporte e pediu o código que chegou por SMS para 'corrigir minha conta'.",
+      "expected": "seguranca",
+      "difficulty": "easy"
+    }
+  ]
+}

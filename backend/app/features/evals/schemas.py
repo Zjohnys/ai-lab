@@ -19,6 +19,9 @@ class EvalCase(BaseModel):
 
 class EvalDataset(BaseModel):
     name: str
+    # Which prompt file to use: data/<prompt_set>_prompts.toml. Defaults to the dataset name,
+    # so a holdout set can reuse the prompts of the set they were written for.
+    prompt_set: str | None = None
     description: str = ""
     labels: list[str] = Field(min_length=2)
     cases: list[EvalCase] = Field(min_length=1)
@@ -69,6 +72,15 @@ def load_dataset(path: Path) -> EvalDataset:
     return EvalDataset.model_validate_json(path.read_text(encoding="utf-8"))
 
 
+def available_datasets(data_dir: Path = DATA_DIR) -> dict[str, Path]:
+    """Datasets on disk, by name. Look names up here; never build a path from user input."""
+    return {path.stem: path for path in sorted(data_dir.glob("*.json"))}
+
+
+def prompts_for(dataset: EvalDataset, data_dir: Path = DATA_DIR) -> list[PromptVersion]:
+    return load_prompts(data_dir / f"{dataset.prompt_set or dataset.name}_prompts.toml")
+
+
 def load_prompts(path: Path) -> list[PromptVersion]:
     with path.open("rb") as file:
         versions = _PromptFile.model_validate(tomllib.load(file)).versions
@@ -115,6 +127,14 @@ class EvalSummary(BaseModel):
     per_label: dict[str, LabelScore]
 
 
+class ModelMemory(BaseModel):
+    """How much memory the model used while loaded, as reported by the provider."""
+
+    size_gb: float
+    vram_gb: float
+    gpu_percent: float
+
+
 class EvalRun(BaseModel):
     dataset: str
     prompt_id: str
@@ -123,3 +143,4 @@ class EvalRun(BaseModel):
     started_at: str
     summary: EvalSummary
     results: list[CaseResult]
+    memory: ModelMemory | None = None
