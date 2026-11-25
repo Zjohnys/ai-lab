@@ -1,0 +1,264 @@
+{
+  "dataset": "support_triage",
+  "prompt_id": "v3_few_shot",
+  "model": "qwen3:4b",
+  "options": {
+    "temperature": 0.0,
+    "num_ctx": 8192,
+    "max_tokens": 64,
+    "seed": 42,
+    "think": false
+  },
+  "started_at": "2026-11-23T22:19:56+00:00",
+  "summary": {
+    "total": 15,
+    "correct": 0,
+    "accuracy": 0.0,
+    "strict_json_rate": 0.0,
+    "json_found_rate": 0.0,
+    "valid_label_rate": 0.0,
+    "errors": 0,
+    "mean_latency_seconds": 1.1170595800000835,
+    "max_latency_seconds": 1.333353299999544,
+    "mean_tokens_per_second": 60.62644820952625,
+    "per_label": {
+      "acesso": {
+        "total": 3,
+        "correct": 0
+      },
+      "hardware": {
+        "total": 3,
+        "correct": 0
+      },
+      "rede": {
+        "total": 3,
+        "correct": 0
+      },
+      "software": {
+        "total": 3,
+        "correct": 0
+      },
+      "seguranca": {
+        "total": 3,
+        "correct": 0
+      }
+    }
+  },
+  "results": [
+    {
+      "case_id": "acesso-01",
+      "expected": "acesso",
+      "predicted": null,
+      "correct": false,
+      "strict_json": false,
+      "json_found": false,
+      "label_valid": false,
+      "raw_output": "Okay, let's see. The user says they forgot their RH system password and their account is locked after three attempts.\n\nFirst, I need to figure out which category this falls into. The categories are acesso, hardware, rede, software, seguranca.\n\nThe problem here is about forgetting the password and the account being",
+      "error": null,
+      "latency_seconds": 1.333353299999544,
+      "output_tokens": 64,
+      "tokens_per_second": 60.55416522771678
+    },
+    {
+      "case_id": "acesso-02",
+      "expected": "acesso",
+      "predicted": null,
+      "correct": false,
+      "strict_json": false,
+      "json_found": false,
+      "label_valid": false,
+      "raw_output": "Okay, let's see. The user says they need read permission on the shared Financeiro folder and their manager already approved it via email.\n\nFirst, I need to figure out which category this falls into. The categories are acesso, hardware, rede, software, seguranca.\n\nThe user is talking about permissions for a",
+      "error": null,
+      "latency_seconds": 1.110037100000227,
+      "output_tokens": 64,
+      "tokens_per_second": 60.17888172593033
+    },
+    {
+      "case_id": "acesso-03",
+      "expected": "acesso",
+      "predicted": null,
+      "correct": false,
+      "strict_json": false,
+      "json_found": false,
+      "label_valid": false,
+      "raw_output": "Okay, let's see. The user says: \"A VPN conecta normalmente, mas quando tento entrar no ERP aparece a mensagem 'usuário sem autorização'.\" Translating that to English, it means \"The VPN connects normally, but when I try to enter the ERP, it shows the",
+      "error": null,
+      "latency_seconds": 1.1024482000002536,
+      "output_tokens": 64,
+      "tokens_per_second": 60.609217393528276
+    },
+    {
+      "case_id": "rede-01",
+      "expected": "rede",
+      "predicted": null,
+      "correct": false,
+      "strict_json": false,
+      "json_found": false,
+      "label_valid": false,
+      "raw_output": "Okay, let's see. The user says: \"O Wi-Fi do terceiro andar cai a cada dez minutos. Todo mundo da sala está reclamando.\" Translated to English, that's \"The Wi-Fi on the third floor drops every ten minutes. Everyone in the room is complaining.\"\n\nFirst",
+      "error": null,
+      "latency_seconds": 1.0999651000001904,
+      "output_tokens": 64,
+      "tokens_per_second": 60.648273182565525
+    },
+    {
+      "case_id": "rede-02",
+      "expected": "rede",
+      "predicted": null,
+      "correct": false,
+      "strict_json": false,
+      "json_found": false,
+      "label_valid": false,
+      "raw_output": "Okay, let's see. The user is saying they're at home office and the VPN is trying to connect but never completes. Their home internet works fine.\n\nFirst, I need to figure out which category this falls into. The categories are acesso, hardware, rede, software, seguranca.\n\nThe problem here is",
+      "error": null,
+      "latency_seconds": 1.1007939999999508,
+      "output_tokens": 64,
+      "tokens_per_second": 60.67690779100977
+    },
+    {
+      "case_id": "rede-03",
+      "expected": "rede",
+      "predicted": null,
+      "correct": false,
+      "strict_json": false,
+      "json_found": false,
+      "label_valid": false,
+      "raw_output": "Okay, let's tackle this problem. So, the user says that everything is slow today: the internal system, email, and even internet sites. They tested on two different computers and it's the same.\n\nFirst, I need to figure out which category this falls into. The categories are acesso, hardware, rede,",
+      "error": null,
+      "latency_seconds": 1.1003550999994332,
+      "output_tokens": 64,
+      "tokens_per_second": 60.77197500372703
+    },
+    {
+      "case_id": "hardware-01",
+      "expected": "hardware",
+      "predicted": null,
+      "correct": false,
+      "strict_json": false,
+      "json_found": false,
+      "label_valid": false,
+      "raw_output": "Okay, let's tackle this problem. So, the user says: \"A impressora do RH mostra 'atolamento de papel', mas não tem nenhum papel preso.\" Translating that to English, it's like \"The HR printer shows 'paper jam', but there's no paper stuck.\"\n\nFirst",
+      "error": null,
+      "latency_seconds": 1.1018151000007492,
+      "output_tokens": 64,
+      "tokens_per_second": 60.63879177207394
+    },
+    {
+      "case_id": "hardware-02",
+      "expected": "hardware",
+      "predicted": null,
+      "correct": false,
+      "strict_json": false,
+      "json_found": false,
+      "label_valid": false,
+      "raw_output": "Okay, let's see. The user says, \"Meu notebook não liga mais. Nem a luz do carregador acende.\" which translates to \"My laptop isn't turning on. The charger light isn't even lighting up.\"\n\nFirst, I need to figure out which category this falls into. The categories",
+      "error": null,
+      "latency_seconds": 1.1018447000005835,
+      "output_tokens": 64,
+      "tokens_per_second": 60.75726334096596
+    },
+    {
+      "case_id": "hardware-03",
+      "expected": "hardware",
+      "predicted": null,
+      "correct": false,
+      "strict_json": false,
+      "json_found": false,
+      "label_valid": false,
+      "raw_output": "Okay, let's see. The user says, \"Derrubei café no teclado e agora algumas teclas digitam letras erradas.\" Translated to English, that's \"I spilled coffee on the keyboard and now some keys type wrong letters.\"\n\nFirst, I need to figure out which category this falls into",
+      "error": null,
+      "latency_seconds": 1.100803100000121,
+      "output_tokens": 64,
+      "tokens_per_second": 60.58741391143824
+    },
+    {
+      "case_id": "software-01",
+      "expected": "software",
+      "predicted": null,
+      "correct": false,
+      "strict_json": false,
+      "json_found": false,
+      "label_valid": false,
+      "raw_output": "Okay, let's see. The user says: \"O Excel fecha sozinho toda vez que eu abro a planilha de orçamento.\" Which translates to \"Excel closes itself every time I open the budget sheet.\"\n\nFirst, I need to figure out which category this falls into. The categories are acesso,",
+      "error": null,
+      "latency_seconds": 1.1057645999999295,
+      "output_tokens": 64,
+      "tokens_per_second": 60.38647348692866
+    },
+    {
+      "case_id": "software-02",
+      "expected": "software",
+      "predicted": null,
+      "correct": false,
+      "strict_json": false,
+      "json_found": false,
+      "label_valid": false,
+      "raw_output": "Okay, let's see. The user says they need to install Power BI Desktop on their machine for a new project.\n\nFirst, I need to figure out which category this falls into. The categories are acesso, hardware, rede, software, seguranca.\n\nThe message is about installing a software (Power BI Desktop).",
+      "error": null,
+      "latency_seconds": 1.0989542999996047,
+      "output_tokens": 64,
+      "tokens_per_second": 60.54265135189848
+    },
+    {
+      "case_id": "software-03",
+      "expected": "software",
+      "predicted": null,
+      "correct": false,
+      "strict_json": false,
+      "json_found": false,
+      "label_valid": false,
+      "raw_output": "Okay, let's see. The user says that after yesterday's update, Outlook isn't opening and shows \"não é possível iniciar o Microsoft Outlook\". \n\nFirst, I need to figure out which category this falls into. The categories are acesso, hardware, rede, software, seguranca.\n\nThe problem here is",
+      "error": null,
+      "latency_seconds": 1.1016208000000915,
+      "output_tokens": 64,
+      "tokens_per_second": 60.72117783904714
+    },
+    {
+      "case_id": "seguranca-01",
+      "expected": "seguranca",
+      "predicted": null,
+      "correct": false,
+      "strict_json": false,
+      "json_found": false,
+      "label_valid": false,
+      "raw_output": "Okay, let's tackle this problem. So, the user says they received an email saying their password expires today with a link to \"confirm my data\". They found it strange.\n\nFirst, I need to figure out which category this falls into. The categories are acesso, hardware, rede, software, seguranca.\n\n",
+      "error": null,
+      "latency_seconds": 1.1009813999999096,
+      "output_tokens": 64,
+      "tokens_per_second": 60.6650022281734
+    },
+    {
+      "case_id": "seguranca-02",
+      "expected": "seguranca",
+      "predicted": null,
+      "correct": false,
+      "strict_json": false,
+      "json_found": false,
+      "label_valid": false,
+      "raw_output": "Okay, let's tackle this problem. So, the user says: \"Apareceu uma mensagem na tela dizendo que meus arquivos foram criptografados e pedindo um pagamento para liberar.\" Which translates to \"A message appeared on the screen saying that my files were encrypted and asking for a payment",
+      "error": null,
+      "latency_seconds": 1.0989352000005965,
+      "output_tokens": 64,
+      "tokens_per_second": 60.7751490992697
+    },
+    {
+      "case_id": "seguranca-03",
+      "expected": "seguranca",
+      "predicted": null,
+      "correct": false,
+      "strict_json": false,
+      "json_found": false,
+      "label_valid": false,
+      "raw_output": "Okay, let's tackle this problem. So, the user says: \"Recebi um alerta de login na minha conta vindo de outro país, e eu não viajei.\" Which translates to \"I received a login alert on my account coming from another country, and I didn't travel.\"\n\nFirst,",
+      "error": null,
+      "latency_seconds": 1.0982217000000674,
+      "output_tokens": 64,
+      "tokens_per_second": 60.88337978862051
+    }
+  ],
+  "memory": {
+    "size_gb": 3.61,
+    "vram_gb": 3.61,
+    "gpu_percent": 100.0
+  }
+}

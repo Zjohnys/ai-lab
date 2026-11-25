@@ -9,8 +9,10 @@ from app.features.evals.schemas import (
     DATA_DIR,
     EvalDataset,
     PromptVersion,
+    available_datasets,
     load_dataset,
     load_prompts,
+    prompts_for,
 )
 
 DATASET = load_dataset(DATA_DIR / "support_triage.json")
@@ -61,6 +63,32 @@ def test_few_shot_examples_do_not_leak_dataset_cases() -> None:
 
     for case in DATASET.cases:
         assert case.message not in few_shot.system
+
+
+HOLDOUT = load_dataset(DATA_DIR / "support_triage_holdout.json")
+
+
+def test_holdout_has_10_cases_balanced_and_reuses_the_same_prompts() -> None:
+    assert len(HOLDOUT.cases) == 10
+    assert HOLDOUT.labels == DATASET.labels
+    assert Counter(case.expected for case in HOLDOUT.cases) == {
+        label: 2 for label in HOLDOUT.labels
+    }
+    assert [prompt.id for prompt in prompts_for(HOLDOUT)] == [prompt.id for prompt in PROMPTS]
+
+
+def test_holdout_shares_no_ids_or_messages_with_the_dev_set_or_the_examples() -> None:
+    few_shot = next(prompt for prompt in PROMPTS if prompt.id == "v3_few_shot")
+    dev_messages = {case.message for case in DATASET.cases}
+
+    assert not {case.id for case in HOLDOUT.cases} & {case.id for case in DATASET.cases}
+    for case in HOLDOUT.cases:
+        assert case.message not in dev_messages
+        assert case.message not in few_shot.system
+
+
+def test_available_datasets_lists_only_json_files() -> None:
+    assert set(available_datasets()) == {"support_triage", "support_triage_holdout"}
 
 
 def test_dataset_rejects_an_expected_label_outside_the_label_list() -> None:

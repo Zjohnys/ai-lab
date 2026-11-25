@@ -1,0 +1,194 @@
+{
+  "dataset": "support_triage_holdout",
+  "prompt_id": "v2_definitions",
+  "model": "qwen3:4b",
+  "options": {
+    "temperature": 0.0,
+    "num_ctx": 8192,
+    "max_tokens": 64,
+    "seed": 42,
+    "think": false
+  },
+  "started_at": "2026-11-23T22:20:29+00:00",
+  "summary": {
+    "total": 10,
+    "correct": 0,
+    "accuracy": 0.0,
+    "strict_json_rate": 0.0,
+    "json_found_rate": 0.0,
+    "valid_label_rate": 0.0,
+    "errors": 0,
+    "mean_latency_seconds": 1.20394423000007,
+    "max_latency_seconds": 1.4097709999996368,
+    "mean_tokens_per_second": 56.36189632412096,
+    "per_label": {
+      "acesso": {
+        "total": 2,
+        "correct": 0
+      },
+      "hardware": {
+        "total": 2,
+        "correct": 0
+      },
+      "rede": {
+        "total": 2,
+        "correct": 0
+      },
+      "software": {
+        "total": 2,
+        "correct": 0
+      },
+      "seguranca": {
+        "total": 2,
+        "correct": 0
+      }
+    }
+  },
+  "results": [
+    {
+      "case_id": "h-acesso-01",
+      "expected": "acesso",
+      "predicted": null,
+      "correct": false,
+      "strict_json": false,
+      "json_found": false,
+      "label_valid": false,
+      "raw_output": "Okay, let's see. The user says they were transferred to the Purchasing team and can't see the order reports. The message says 'acesso negado', which is Portuguese for 'access denied'.\n\nFirst, I need to figure out the category. The categories are acesso, hardware, rede, software, seg",
+      "error": null,
+      "latency_seconds": 1.4097709999996368,
+      "output_tokens": 64,
+      "tokens_per_second": 53.92452588545757
+    },
+    {
+      "case_id": "h-acesso-02",
+      "expected": "acesso",
+      "predicted": null,
+      "correct": false,
+      "strict_json": false,
+      "json_found": false,
+      "label_valid": false,
+      "raw_output": "Okay, let's see. The user is saying that their two-factor authentication code is going to their old phone, which they already returned, and they can't log into the portal.\n\nFirst, I need to figure out which category this falls into. The categories are acesso, hardware, rede, software, seguranca",
+      "error": null,
+      "latency_seconds": 1.1871342000004006,
+      "output_tokens": 64,
+      "tokens_per_second": 56.354597214321814
+    },
+    {
+      "case_id": "h-rede-01",
+      "expected": "rede",
+      "predicted": null,
+      "correct": false,
+      "strict_json": false,
+      "json_found": false,
+      "label_valid": false,
+      "raw_output": "Okay, let's see. I need to figure out the category for this ticket. The message says: \"Na sala de reunião 4 o notebook conecta no Wi-Fi mas não abre nenhum site. Nas outras salas funciona.\"\n\nFirst, the user is saying that in room 4, the notebook",
+      "error": null,
+      "latency_seconds": 1.187584300000708,
+      "output_tokens": 64,
+      "tokens_per_second": 56.4269403373273
+    },
+    {
+      "case_id": "h-rede-02",
+      "expected": "rede",
+      "predicted": null,
+      "correct": false,
+      "strict_json": false,
+      "json_found": false,
+      "label_valid": false,
+      "raw_output": "Okay, let's see. The user says that the printer from the floor disappeared from everyone's printer list, but it's on and the display shows 'pronta'. Hmm.\n\nFirst, I need to figure out which category this falls into. The categories are acesso, hardware, rede, software, seguranca.\n\n",
+      "error": null,
+      "latency_seconds": 1.1853848999999173,
+      "output_tokens": 64,
+      "tokens_per_second": 56.37539671983278
+    },
+    {
+      "case_id": "h-hardware-01",
+      "expected": "hardware",
+      "predicted": null,
+      "correct": false,
+      "strict_json": false,
+      "json_found": false,
+      "label_valid": false,
+      "raw_output": "Okay, let's see. The user says that the notebook screen has a vertical colored stripe after it fell off the desk. Hmm, so first I need to figure out which category this falls into.\n\nThe categories are: acesso, hardware, rede, software, seguranca.\n\nThe problem here is the screen showing a",
+      "error": null,
+      "latency_seconds": 1.1828576999996585,
+      "output_tokens": 64,
+      "tokens_per_second": 56.45187609871669
+    },
+    {
+      "case_id": "h-hardware-02",
+      "expected": "hardware",
+      "predicted": null,
+      "correct": false,
+      "strict_json": false,
+      "json_found": false,
+      "label_valid": false,
+      "raw_output": "Okay, let's see. The user says their wireless mouse stops responding every few minutes. They changed the battery, but the problem continues.\n\nFirst, I need to figure out which category this falls into. The categories are: acesso, hardware, rede, software, seguranca.\n\nThe problem is the mouse not responding",
+      "error": null,
+      "latency_seconds": 1.1814838999998756,
+      "output_tokens": 64,
+      "tokens_per_second": 56.567834998696284
+    },
+    {
+      "case_id": "h-software-01",
+      "expected": "software",
+      "predicted": null,
+      "correct": false,
+      "strict_json": false,
+      "json_found": false,
+      "label_valid": false,
+      "raw_output": "Okay, let's see. The user says that Teams isn't showing new messages, and they only appear when they close and reopen the program. Hmm.\n\nFirst, I need to figure out which category this falls into. The categories are acesso, hardware, rede, software, seguranca.\n\nSo, Teams is a",
+      "error": null,
+      "latency_seconds": 1.173501600000236,
+      "output_tokens": 64,
+      "tokens_per_second": 57.04176080785394
+    },
+    {
+      "case_id": "h-software-02",
+      "expected": "software",
+      "predicted": null,
+      "correct": false,
+      "strict_json": false,
+      "json_found": false,
+      "label_valid": false,
+      "raw_output": "Okay, let's see. The user is saying that the payroll system gives an 'error 500' when generating the monthly report, but other reports work fine.\n\nFirst, I need to figure out which category this falls into. The categories are: acesso, hardware, rede, software, seguranca.\n\n",
+      "error": null,
+      "latency_seconds": 1.1768411000002743,
+      "output_tokens": 64,
+      "tokens_per_second": 56.82968498595241
+    },
+    {
+      "case_id": "h-seguranca-01",
+      "expected": "seguranca",
+      "predicted": null,
+      "correct": false,
+      "strict_json": false,
+      "json_found": false,
+      "label_valid": false,
+      "raw_output": "Okay, let's see. The user says their corporate phone was stolen on the bus this morning and it has access to the company email.\n\nFirst, I need to figure out which category this falls into. The categories are acesso, hardware, rede, software, seguranca.\n\nThe main issue here is that the phone",
+      "error": null,
+      "latency_seconds": 1.178034900000057,
+      "output_tokens": 64,
+      "tokens_per_second": 56.71687291521182
+    },
+    {
+      "case_id": "h-seguranca-02",
+      "expected": "seguranca",
+      "predicted": null,
+      "correct": false,
+      "strict_json": false,
+      "json_found": false,
+      "label_valid": false,
+      "raw_output": "Okay, let's see. The user message says: \"Um homem ligou dizendo ser do suporte e pediu o código que chegou por SMS para 'corrigir minha conta'.\" Translated to English, that's \"A man called saying he's from support and asked for the code that arrived",
+      "error": null,
+      "latency_seconds": 1.1768486999999368,
+      "output_tokens": 64,
+      "tokens_per_second": 56.92947327783896
+    }
+  ],
+  "memory": {
+    "size_gb": 3.61,
+    "vram_gb": 3.61,
+    "gpu_percent": 100.0
+  }
+}

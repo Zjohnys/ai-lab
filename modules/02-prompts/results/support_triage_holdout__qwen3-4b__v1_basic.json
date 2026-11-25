@@ -1,0 +1,194 @@
+{
+  "dataset": "support_triage_holdout",
+  "prompt_id": "v1_basic",
+  "model": "qwen3:4b",
+  "options": {
+    "temperature": 0.0,
+    "num_ctx": 8192,
+    "max_tokens": 64,
+    "seed": 42,
+    "think": false
+  },
+  "started_at": "2026-11-23T22:20:15+00:00",
+  "summary": {
+    "total": 10,
+    "correct": 0,
+    "accuracy": 0.0,
+    "strict_json_rate": 0.0,
+    "json_found_rate": 0.0,
+    "valid_label_rate": 0.0,
+    "errors": 0,
+    "mean_latency_seconds": 1.1538945999999668,
+    "max_latency_seconds": 1.2682400000003327,
+    "mean_tokens_per_second": 58.995997803970205,
+    "per_label": {
+      "acesso": {
+        "total": 2,
+        "correct": 0
+      },
+      "hardware": {
+        "total": 2,
+        "correct": 0
+      },
+      "rede": {
+        "total": 2,
+        "correct": 0
+      },
+      "software": {
+        "total": 2,
+        "correct": 0
+      },
+      "seguranca": {
+        "total": 2,
+        "correct": 0
+      }
+    }
+  },
+  "results": [
+    {
+      "case_id": "h-acesso-01",
+      "expected": "acesso",
+      "predicted": null,
+      "correct": false,
+      "strict_json": false,
+      "json_found": false,
+      "label_valid": false,
+      "raw_output": "Okay, let's tackle this problem. So, I need to classify the support message into one of the categories: acesso, hardware, rede, software, seguranca. The message in Portuguese says: \"Fui transferido para o time de Compras e ainda não consigo ver os relatórios do sistema",
+      "error": null,
+      "latency_seconds": 1.2682400000003327,
+      "output_tokens": 64,
+      "tokens_per_second": 56.53660303354211
+    },
+    {
+      "case_id": "h-acesso-02",
+      "expected": "acesso",
+      "predicted": null,
+      "correct": false,
+      "strict_json": false,
+      "json_found": false,
+      "label_valid": false,
+      "raw_output": "Okay, let's tackle this problem. So, I need to classify the support message into one of the categories: acesso, hardware, rede, software, seguranca. The message in Portuguese says: \"O código da autenticação em dois fatores está indo para o meu celular antigo, que eu",
+      "error": null,
+      "latency_seconds": 1.0987803999996686,
+      "output_tokens": 64,
+      "tokens_per_second": 61.59105082031581
+    },
+    {
+      "case_id": "h-rede-01",
+      "expected": "rede",
+      "predicted": null,
+      "correct": false,
+      "strict_json": false,
+      "json_found": false,
+      "label_valid": false,
+      "raw_output": "Okay, let's tackle this problem. So, I need to classify the support message into one of the categories: acesso, hardware, rede, software, seguranca. The message in Portuguese says: \"Na sala de reunião 4 o notebook conecta no Wi-Fi mas não abre nenhum site.",
+      "error": null,
+      "latency_seconds": 1.0902126999999382,
+      "output_tokens": 64,
+      "tokens_per_second": 61.703696978643485
+    },
+    {
+      "case_id": "h-rede-02",
+      "expected": "rede",
+      "predicted": null,
+      "correct": false,
+      "strict_json": false,
+      "json_found": false,
+      "label_valid": false,
+      "raw_output": "Okay, let's tackle this problem. So, I need to classify the support message into one of the categories: acesso, hardware, rede, software, seguranca. The message in Portuguese says: \"A impressora do andar sumiu da lista de impressoras de todo mundo, mas ela está ligada",
+      "error": null,
+      "latency_seconds": 1.0985475999996197,
+      "output_tokens": 64,
+      "tokens_per_second": 61.211509676678894
+    },
+    {
+      "case_id": "h-hardware-01",
+      "expected": "hardware",
+      "predicted": null,
+      "correct": false,
+      "strict_json": false,
+      "json_found": false,
+      "label_valid": false,
+      "raw_output": "Okay, let's tackle this problem. So, I need to classify the support message into one of the categories: acesso, hardware, rede, software, seguranca. The message in Portuguese is: \"A tela do notebook ficou com uma faixa colorida vertical depois que ele caiu da mesa.\"\n\n",
+      "error": null,
+      "latency_seconds": 1.1162590000003547,
+      "output_tokens": 64,
+      "tokens_per_second": 60.299992519314834
+    },
+    {
+      "case_id": "h-hardware-02",
+      "expected": "hardware",
+      "predicted": null,
+      "correct": false,
+      "strict_json": false,
+      "json_found": false,
+      "label_valid": false,
+      "raw_output": "Okay, let's tackle this problem. So, I need to classify the support message into one of the categories: acesso, hardware, rede, software, seguranca. The message in Portuguese says: \"O mouse sem fio para de responder a cada poucos minutos. Já troquei a pilha e",
+      "error": null,
+      "latency_seconds": 1.1841095999998288,
+      "output_tokens": 64,
+      "tokens_per_second": 58.35848523256768
+    },
+    {
+      "case_id": "h-software-01",
+      "expected": "software",
+      "predicted": null,
+      "correct": false,
+      "strict_json": false,
+      "json_found": false,
+      "label_valid": false,
+      "raw_output": "Okay, let's tackle this problem. So, I need to classify the support message into one of the categories: acesso, hardware, rede, software, seguranca. The message in Portuguese says: \"O Teams não mostra as mensagens novas. Elas só aparecem quando eu fecho e abro",
+      "error": null,
+      "latency_seconds": 1.168562199999542,
+      "output_tokens": 64,
+      "tokens_per_second": 57.53320969686291
+    },
+    {
+      "case_id": "h-software-02",
+      "expected": "software",
+      "predicted": null,
+      "correct": false,
+      "strict_json": false,
+      "json_found": false,
+      "label_valid": false,
+      "raw_output": "Okay, let's tackle this problem. So, I need to classify the support message into one of the categories: acesso, hardware, rede, software, seguranca. The message in Portuguese says: \"O sistema de folha de pagamento dá 'erro 500' quando gero o relatório mens",
+      "error": null,
+      "latency_seconds": 1.1211382000001322,
+      "output_tokens": 64,
+      "tokens_per_second": 60.045184000960724
+    },
+    {
+      "case_id": "h-seguranca-01",
+      "expected": "seguranca",
+      "predicted": null,
+      "correct": false,
+      "strict_json": false,
+      "json_found": false,
+      "label_valid": false,
+      "raw_output": "Okay, let's tackle this problem. So, I need to classify the support message into one of the categories: acesso, hardware, rede, software, seguranca. The message in Portuguese says: \"Meu celular corporativo foi roubado no ônibus hoje de manhã, e ele tem acesso ao",
+      "error": null,
+      "latency_seconds": 1.2182572000001528,
+      "output_tokens": 64,
+      "tokens_per_second": 55.53636851157326
+    },
+    {
+      "case_id": "h-seguranca-02",
+      "expected": "seguranca",
+      "predicted": null,
+      "correct": false,
+      "strict_json": false,
+      "json_found": false,
+      "label_valid": false,
+      "raw_output": "Okay, let's tackle this problem. So, I need to classify the support message into one of the categories: acesso, hardware, rede, software, seguranca. The message in Portuguese says: \"Um homem ligou dizendo ser do suporte e pediu o código que chegou por SMS para '",
+      "error": null,
+      "latency_seconds": 1.1748391000000993,
+      "output_tokens": 64,
+      "tokens_per_second": 57.143877569242306
+    }
+  ],
+  "memory": {
+    "size_gb": 3.61,
+    "vram_gb": 3.61,
+    "gpu_percent": 100.0
+  }
+}

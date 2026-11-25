@@ -9,7 +9,7 @@
     "seed": 42,
     "think": false
   },
-  "started_at": "2026-11-23T21:56:12+00:00",
+  "started_at": "2026-11-23T22:18:38+00:00",
   "summary": {
     "total": 15,
     "correct": 15,
@@ -18,9 +18,9 @@
     "json_found_rate": 1.0,
     "valid_label_rate": 1.0,
     "errors": 0,
-    "mean_latency_seconds": 0.2768025000000004,
-    "max_latency_seconds": 0.4681024999999863,
-    "mean_tokens_per_second": 39.64442110124087,
+    "mean_latency_seconds": 0.34272321333319267,
+    "max_latency_seconds": 0.5739550999996936,
+    "mean_tokens_per_second": 32.09187786231996,
     "per_label": {
       "acesso": {
         "total": 3,
@@ -55,9 +55,9 @@
       "label_valid": true,
       "raw_output": "{\"category\": \"acesso\"}",
       "error": null,
-      "latency_seconds": 0.4681024999999863,
+      "latency_seconds": 0.5739550999996936,
       "output_tokens": 8,
-      "tokens_per_second": 35.843257435235714
+      "tokens_per_second": 32.7392523173252
     },
     {
       "case_id": "acesso-02",
@@ -69,9 +69,9 @@
       "label_valid": true,
       "raw_output": "{\"category\": \"acesso\"}",
       "error": null,
-      "latency_seconds": 0.2858381000000918,
+      "latency_seconds": 0.341623599999366,
       "output_tokens": 8,
-      "tokens_per_second": 38.895371450797356
+      "tokens_per_second": 33.03778283439399
     },
     {
       "case_id": "acesso-03",
@@ -83,9 +83,9 @@
       "label_valid": true,
       "raw_output": "{\"category\": \"acesso\"}",
       "error": null,
-      "latency_seconds": 0.2653433999998924,
+      "latency_seconds": 0.3374209999992672,
       "output_tokens": 8,
-      "tokens_per_second": 41.38666004480106
+      "tokens_per_second": 31.610557926347397
     },
     {
       "case_id": "rede-01",
@@ -97,9 +97,9 @@
       "label_valid": true,
       "raw_output": "{\"category\": \"rede\"}",
       "error": null,
-      "latency_seconds": 0.2329663000000437,
+      "latency_seconds": 0.304850799999258,
       "output_tokens": 7,
-      "tokens_per_second": 42.36826495902383
+      "tokens_per_second": 32.33629749393695
     },
     {
       "case_id": "rede-02",
@@ -111,9 +111,9 @@
       "label_valid": true,
       "raw_output": "{\"category\": \"rede\"}",
       "error": null,
-      "latency_seconds": 0.22728739999956815,
+      "latency_seconds": 0.30544499999996333,
       "output_tokens": 7,
-      "tokens_per_second": 43.303701229206496
+      "tokens_per_second": 31.670625494853525
     },
     {
       "case_id": "rede-03",
@@ -125,9 +125,9 @@
       "label_valid": true,
       "raw_output": "{\"category\": \"rede\"}",
       "error": null,
-      "latency_seconds": 0.2291573000002245,
+      "latency_seconds": 0.30548840000028576,
       "output_tokens": 7,
-      "tokens_per_second": 43.37077677061197
+      "tokens_per_second": 32.71853645312368
     },
     {
       "case_id": "hardware-01",
@@ -139,9 +139,9 @@
       "label_valid": true,
       "raw_output": "{\"category\": \"hardware\"}",
       "error": null,
-      "latency_seconds": 0.2267001000000164,
+      "latency_seconds": 0.2998741000001246,
       "output_tokens": 7,
-      "tokens_per_second": 43.09840597467045
+      "tokens_per_second": 33.02883889476068
     },
     {
       "case_id": "hardware-02",
@@ -153,9 +153,9 @@
       "label_valid": true,
       "raw_output": "{\"category\": \"hardware\"}",
       "error": null,
-      "latency_seconds": 0.2687498999998752,
+      "latency_seconds": 0.2971330999998827,
       "output_tokens": 7,
-      "tokens_per_second": 35.948316591688744
+      "tokens_per_second": 33.183218772220904
     },
     {
       "case_id": "hardware-03",
@@ -167,9 +167,9 @@
       "label_valid": true,
       "raw_output": "{\"category\": \"hardware\"}",
       "error": null,
-      "latency_seconds": 0.265710399999989,
+      "latency_seconds": 0.29751350000060484,
       "output_tokens": 7,
-      "tokens_per_second": 36.04531410916581
+      "tokens_per_second": 32.49873487067825
     },
     {
       "case_id": "software-01",
@@ -181,9 +181,9 @@
       "label_valid": true,
       "raw_output": "{\"category\": \"software\"}",
       "error": null,
-      "latency_seconds": 0.25639330000012706,
+      "latency_seconds": 0.31200929999977234,
       "output_tokens": 7,
-      "tokens_per_second": 38.55283666264616
+      "tokens_per_second": 30.67928315663527
     },
     {
       "case_id": "software-02",
@@ -195,9 +195,9 @@
       "label_valid": true,
       "raw_output": "{\"category\": \"software\"}",
       "error": null,
-      "latency_seconds": 0.22501270000020668,
+      "latency_seconds": 0.3076029000003473,
       "output_tokens": 7,
-      "tokens_per_second": 42.894785219682575
+      "tokens_per_second": 31.038962766547094
     },
     {
       "case_id": "software-03",
@@ -209,9 +209,9 @@
       "label_valid": true,
       "raw_output": "{\"category\": \"software\"}",
       "error": null,
-      "latency_seconds": 0.2529487000001609,
+      "latency_seconds": 0.31135509999967326,
       "output_tokens": 7,
-      "tokens_per_second": 38.613659306167705
+      "tokens_per_second": 31.50017325095288
     },
     {
       "case_id": "seguranca-01",
@@ -223,9 +223,9 @@
       "label_valid": true,
       "raw_output": "{\"category\": \"seguranca\"}",
       "error": null,
-      "latency_seconds": 0.3148317999998653,
+      "latency_seconds": 0.3726126999999906,
       "output_tokens": 9,
-      "tokens_per_second": 38.217858780765376
+      "tokens_per_second": 32.06121554755213
     },
     {
       "case_id": "seguranca-02",
@@ -237,9 +237,9 @@
       "label_valid": true,
       "raw_output": "{\"category\": \"seguranca\"}",
       "error": null,
-      "latency_seconds": 0.32647980000001553,
+      "latency_seconds": 0.39384940000036295,
       "output_tokens": 9,
-      "tokens_per_second": 37.59492719115767
+      "tokens_per_second": 32.1646831778707
     },
     {
       "case_id": "seguranca-03",
@@ -251,9 +251,14 @@
       "label_valid": true,
       "raw_output": "{\"category\": \"seguranca\"}",
       "error": null,
-      "latency_seconds": 0.30651579999994283,
+      "latency_seconds": 0.38011419999929785,
       "output_tokens": 9,
-      "tokens_per_second": 38.53218079299228
+      "tokens_per_second": 31.110004977600795
     }
-  ]
+  ],
+  "memory": {
+    "size_gb": 5.77,
+    "vram_gb": 5.77,
+    "gpu_percent": 100.0
+  }
 }
