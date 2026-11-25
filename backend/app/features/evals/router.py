@@ -34,6 +34,10 @@ class EvalRequest(BaseModel):
     dataset: str = Field(default="support_triage", min_length=1, max_length=100)
     prompt_id: str = Field(min_length=1, max_length=100)
     model: str | None = Field(default=None, min_length=1, max_length=200)
+    # Thinking-only models (such as the installed qwen3:4b) need think=True and a large
+    # token budget, otherwise their reasoning is cut before the answer.
+    think: bool = False
+    max_tokens: int = Field(default=DEFAULT_EVAL_OPTIONS.max_tokens or 64, ge=1, le=4096)
 
 
 def _find_dataset(name: str) -> tuple[EvalDataset, list[PromptVersion]]:
@@ -79,9 +83,12 @@ async def run(request: EvalRequest, provider: ProviderDep, settings: SettingsDep
             status.HTTP_404_NOT_FOUND,
             f"Unknown prompt '{request.prompt_id}' for dataset '{dataset.name}'.",
         )
+    options = DEFAULT_EVAL_OPTIONS.model_copy(
+        update={"think": request.think, "max_tokens": request.max_tokens}
+    )
     try:
         return await run_eval(
-            provider, request.model or settings.chat_model, dataset, prompt, DEFAULT_EVAL_OPTIONS
+            provider, request.model or settings.chat_model, dataset, prompt, options
         )
     except LLMProviderError as exc:
         raise to_http_error(exc) from exc

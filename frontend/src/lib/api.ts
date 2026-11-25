@@ -107,6 +107,19 @@ export async function* streamChat(
   }
 }
 
+/**
+ * Sends a request and returns the JSON body. Throws ApiError with the backend's
+ * `detail` on an error status. The body is cast, not validated: our own backend
+ * builds it from Pydantic models, unlike the streamed events checked above.
+ */
+export async function requestJson<T>(url: string, init?: RequestInit): Promise<T> {
+  const response = await fetch(url, init)
+  if (!response.ok) {
+    throw new ApiError(response.status, await errorDetail(response))
+  }
+  return (await response.json()) as T
+}
+
 async function errorDetail(response: Response): Promise<string> {
   try {
     const body: unknown = await response.json()
