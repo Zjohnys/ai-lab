@@ -106,6 +106,36 @@ def test_provider_failures_stop_the_run_with_an_http_error(
     assert len(provider.calls) == 1  # stopped at the first case, not 15 failures
 
 
+def test_run_defaults_to_thinking_off_and_a_short_answer() -> None:
+    provider = FakeProvider(reply='{"category": "rede"}')
+
+    client_with(provider).post("/api/evals/run", json={"prompt_id": "v1_basic"})
+
+    assert provider.calls[0].options.think is False
+    assert provider.calls[0].options.max_tokens == 64
+
+
+def test_run_passes_thinking_and_token_budget() -> None:
+    provider = FakeProvider(reply='{"category": "rede"}')
+
+    client_with(provider).post(
+        "/api/evals/run",
+        json={"prompt_id": "v1_basic", "model": "qwen3:4b", "think": True, "max_tokens": 2048},
+    )
+
+    options = provider.calls[0].options
+    assert (options.think, options.max_tokens, options.temperature) == (True, 2048, 0.0)
+
+
+@pytest.mark.parametrize("max_tokens", [0, 5000])
+def test_run_rejects_a_token_budget_out_of_range(max_tokens: int) -> None:
+    response = client_with(FakeProvider()).post(
+        "/api/evals/run", json={"prompt_id": "v1_basic", "max_tokens": max_tokens}
+    )
+
+    assert response.status_code == 422
+
+
 def test_run_requires_a_prompt_id() -> None:
     response = client_with(FakeProvider()).post("/api/evals/run", json={})
 
